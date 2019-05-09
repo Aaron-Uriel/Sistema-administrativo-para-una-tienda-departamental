@@ -1,10 +1,16 @@
 #include <iostream>
+#include "terminal.hpp"
 
-extern "C" {
+/*extern "C" {
     void cover();
-}
+}*/
 
 int main() {
-    cover();
-    return 0;//Hola
+    //cover();
+    Terminal ThisTerminal;
+    while (true) {
+        ThisTerminal.PrintOptions();
+        std::cin.ignore(32767, '\n');
+    }
+    return 0;
 }
