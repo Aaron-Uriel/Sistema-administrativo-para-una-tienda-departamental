@@ -1,6 +1,7 @@
 #include "Menu.hpp"
 #include <iostream>
 #include <cstdlib>
+#include "Getch.hpp"
 
 constexpr unsigned short g_OptionsNumber = 4;
 
@@ -27,9 +28,9 @@ void Menu::Clear() {
 }
 
 void Menu::ScanArrows() {
-    std::cin.ignore(2);
-    std::cin >> m_Arrow;
-    std::cin.ignore(32767, '\n');
+    getch();
+    getch();
+    m_Arrow = getch();
     UpdateSelection(m_Selection, m_Arrow);
 }
 
