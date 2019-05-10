@@ -1,16 +1,18 @@
 #include <iostream>
-#include "terminal.hpp"
+#include "Menu.hpp"
 
 /*extern "C" {
     void cover();
 }*/
 
+
 int main() {
     //cover();
-    Terminal ThisTerminal;
+    Menu ThisMenu;
     while (true) {
-        ThisTerminal.PrintOptions();
-        std::cin.ignore(32767, '\n');
+        ThisMenu.Clear();
+        ThisMenu.PrintOptions();
+        ThisMenu.ScanArrows();
     }
     return 0;
 }
