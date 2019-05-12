@@ -26,10 +26,10 @@ $(OBJDIR)/%.c.o: $(SRCDIR)/%.c
 	$(cc) $(FLAGS) $(WARNFLAGS) $(DEFINES) -c $< -o $@
 
 clear:
-	rm $(OBJDIR)/*.cpp $(OBJDIR)/*.c $(OBJDIR)/*.o
+	rm $(OBJDIR)/*.o $(BINDIR)/*.out
 
 clean:
-	rm $(OBJDIR)/*.cpp $(OBJDIR)/*.c $(OBJDIR)/*.o
+	rm $(OBJDIR)/*.o $(BINDIR)/*.out
 
 debug: FLAGS = -g -Og
 debug: all

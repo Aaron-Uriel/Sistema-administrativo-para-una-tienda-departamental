@@ -1,9 +1,11 @@
 #include "Menu.hpp"
 #include <iostream>
 #include <cstdlib>
-#include "Getch.hpp"
+#include "psconio.hpp"
+#include <cassert>
 
 constexpr unsigned short g_OptionsNumber = 4;
+
 
 Menu::Menu() {
     m_Selection = 1;
@@ -18,17 +20,8 @@ void Menu::PrintOptions() {
         "4.- Salir." << PrintSelection(m_Selection) << std::endl << std::endl;
 }
 
-void Menu::Clear() {
-    #ifdef __WIN32
-    std::system("cls");
-    #endif
-    #ifdef __linux__
-    std::system("clear");
-    #endif
-}
-
-void Menu::ScanArrows() {
-    getch();
+void Menu::ScanKeyboard() {
+    if (getch() == '\n') { std::cout << "Espacio en desarrollo" << std::endl;}
     getch();
     m_Arrow = getch();
     UpdateSelection(m_Selection, m_Arrow);

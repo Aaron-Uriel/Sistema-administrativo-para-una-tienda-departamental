@@ -13,8 +13,7 @@ private:
 public:
     Menu();
     void PrintOptions();
-    void Clear();
-    void ScanArrows();
+    void ScanKeyboard();
 };
 
 #endif
