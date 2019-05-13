@@ -1,6 +1,6 @@
 #include "Menu.hpp"
 
-constexpr unsigned short g_OptionsNumber = 5;
+constexpr unsigned short g_OptionsNumber = 6;
 
 
 Menu::Menu() {
@@ -13,8 +13,9 @@ void Menu::PrintOptions() {
         "1.- Agregar producto." << PrintSelection(m_Selection) << std::endl <<
         "2.- Eliminar producto." << PrintSelection(m_Selection) << std::endl <<
         "3.- Aplicar un descuento." << PrintSelection(m_Selection) << std::endl <<
-        "4.- Ver estado de los productos" << PrintSelection(m_Selection) << std::endl <<
-        "5.- Salir." << PrintSelection(m_Selection) << std::endl << std::endl;
+        "4.- Ver estado de los productos." << PrintSelection(m_Selection) << std::endl <<
+        "5.- Editar productos." << rintSelection(m_Selection) << std::endl <<
+        "6.- Salir." << PrintSelection(m_Selection) << std::endl << std::endl;
 }
 
 void Menu::ScanKeyboard() {
