@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include "Console.h"
 
 
 void color(){
@@ -35,7 +35,7 @@ void cover(){
     printf("Office Depot\n\nCARGANDO ");
     for (int x = 1 ; x <= 50 ; x++){
         gotoxy(x,20); printf("*\n");
-        gotoxy(25,22); printf("%%%d" , (x * 100) / 50);
-        Sleep(100);
+        gotoxy(25,20); printf("%%%d" , (x * 100) / 50);
+        Sleep(70);
     }
 }

@@ -1,4 +1,5 @@
 #include "Console.h"
+#include <stdlib.h>
 
 void Clear() {
     #ifdef __WIN32
