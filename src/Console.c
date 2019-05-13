@@ -2,10 +2,10 @@
 
 void Clear() {
     #ifdef __WIN32
-    std::system("cls");
+    system("cls");
     #endif
     #ifdef __linux__
-    std::system("clear");
+    system("clear");
     #endif
 }
 

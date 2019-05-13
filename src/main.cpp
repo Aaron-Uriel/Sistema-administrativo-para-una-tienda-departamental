@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Menu.hpp"
-#include "Console.hpp"
+#include "Console.h"
 
 extern "C" {
     void cover();
@@ -11,7 +11,7 @@ int main() {
     cover();
     Menu ThisMenu;
     while (true) {
-        console.Clear();
+        Clear();
         ThisMenu.PrintOptions();
         ThisMenu.ScanKeyboard();
     }
