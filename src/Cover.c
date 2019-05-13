@@ -39,5 +39,3 @@ void cover(){
         Sleep(100);
     }
 }
-    }
-}
