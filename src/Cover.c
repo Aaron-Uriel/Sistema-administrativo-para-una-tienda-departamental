@@ -43,8 +43,11 @@ void gotoxy(int x,int y) {
 void cover(){
     color();
     printf("Office Depot\n\nCARGANDO ");
-    for (int x = 1 ; x <= 100 ; x++){
-        printf("*\n");
-        Sleep(400);
+    for (int x = 1 ; x <= 50 ; x++){
+        gotoxy(x,20); printf("*\n");
+        gotoxy(25,22); printf("%%%d" , (x * 100) / 50);
+        Sleep(100);
+    }
+}
     }
 }
