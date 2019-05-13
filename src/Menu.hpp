@@ -9,13 +9,13 @@
 #include <cassert>
 #endif
 
-std::string PrintSelection(const unsigned short Selection);
-void UpdateSelection(unsigned short &Selection, unsigned char &Arrow);
-
 class Menu {
 private:
     unsigned short m_Selection;
     unsigned char  m_Arrow;
+    const unsigned short m_OptionsNumber = 6;
+    std::string PrintSelection(const unsigned short Selection);
+    void UpdateSelection();
 public:
     Menu();
     void PrintOptions();

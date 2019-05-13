@@ -1,8 +1,5 @@
 #include "Menu.hpp"
 
-constexpr unsigned short g_OptionsNumber = 6;
-
-
 Menu::Menu() {
     m_Selection = 1;
     m_Arrow     = 0;
@@ -22,7 +19,7 @@ void Menu::ScanKeyboard() {
     if (getch() == '\n') { this->CallSelectedFunction(); }
     getch();
     m_Arrow = getch();
-    UpdateSelection(m_Selection, m_Arrow);
+    UpdateSelection();
 }
 
 void Menu::CallSelectedFunction() {
@@ -31,14 +28,15 @@ void Menu::CallSelectedFunction() {
         case 2:  ; break;
         case 3:  ; break;
         case 4:  ; break;
-        case 5: exit(0) ; break;
+        case 5:  ; break;
+        case 6: exit(0) ; break;
         default: exit(1);
     }
 }
 
-std::string PrintSelection(const unsigned short Selection) {
+std::string Menu::PrintSelection(const unsigned short Selection) {
     static unsigned short TimesCalled = 1;
-    if (TimesCalled > g_OptionsNumber) {
+    if (TimesCalled > m_OptionsNumber) {
         TimesCalled = 1;
     }
     if (Selection == TimesCalled) {
@@ -49,15 +47,15 @@ std::string PrintSelection(const unsigned short Selection) {
     return "";
 }
 
-void UpdateSelection(unsigned short &Selection, unsigned char &Arrow) {
-    switch (Arrow) {
-        case 'A': Selection--; break;
-        case 'B': Selection++; break;
+void Menu::UpdateSelection() {
+    switch (m_Arrow) {
+        case 'A': m_Selection--; break;
+        case 'B': m_Selection++; break;
     }
-    if (Selection > g_OptionsNumber) {
-        Selection = 1;
+    if (m_Selection > m_OptionsNumber) {
+        m_Selection = 1;
     }
-    if (Selection < 1) {
-        Selection = 4;
+    if (m_Selection < 1) {
+        m_Selection = 4;
     }
 }
