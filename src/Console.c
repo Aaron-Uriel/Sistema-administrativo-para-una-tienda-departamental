@@ -1,4 +1,4 @@
-#include "Console.hpp"
+#include "Console.h"
 
 void Clear() {
     #ifdef __WIN32
