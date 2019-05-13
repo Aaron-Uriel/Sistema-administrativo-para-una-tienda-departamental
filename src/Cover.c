@@ -32,6 +32,7 @@ void gotoxy(int x,int y) {
 
 void cover(){
     int character;
+    Clear();
     color();
     printf("Office Depot\n\nCARGANDO ");
     for (int x = 1 ; x <= 50 ; x++){
