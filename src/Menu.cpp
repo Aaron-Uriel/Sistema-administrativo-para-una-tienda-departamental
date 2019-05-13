@@ -1,10 +1,6 @@
 #include "Menu.hpp"
-#include <iostream>
-#include <cstdlib>
-#include "psconio.hpp"
-#include <cassert>
 
-constexpr unsigned short g_OptionsNumber = 4;
+constexpr unsigned short g_OptionsNumber = 5;
 
 
 Menu::Menu() {
@@ -17,14 +13,26 @@ void Menu::PrintOptions() {
         "1.- Agregar producto." << PrintSelection(m_Selection) << std::endl <<
         "2.- Eliminar producto." << PrintSelection(m_Selection) << std::endl <<
         "3.- Aplicar un descuento." << PrintSelection(m_Selection) << std::endl <<
-        "4.- Salir." << PrintSelection(m_Selection) << std::endl << std::endl;
+        "4.- Ver estado de los productos" << PrintSelection(m_Selection) << std::endl <<
+        "5.- Salir." << PrintSelection(m_Selection) << std::endl << std::endl;
 }
 
 void Menu::ScanKeyboard() {
-    if (getch() == '\n') { std::cout << "Espacio en desarrollo" << std::endl;}
+    if (getch() == '\n') { this->CallSelectedFunction(); }
     getch();
     m_Arrow = getch();
     UpdateSelection(m_Selection, m_Arrow);
+}
+
+void Menu::CallSelectedFunction() {
+    switch (m_Selection) {
+        case 1:  ; break;
+        case 2:  ; break;
+        case 3:  ; break;
+        case 4:  ; break;
+        case 5: exit(0) ; break;
+        default: exit(1);
+    }
 }
 
 std::string PrintSelection(const unsigned short Selection) {

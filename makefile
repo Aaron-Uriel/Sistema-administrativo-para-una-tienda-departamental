@@ -10,8 +10,8 @@ BINNAME   = a.out
 OUTPUT    = $(BINDIR)/$(BINNAME)
 WARNFLAGS = -Wall -Wextra
 LDFLAGS   ?=
-DEFINES   ?= -DNBDEBUG
-STDC++    ?= -std=c++17
+DEFINES   ?=
+STDC++    ?= -std=c++11
 
 .PHONY: all
 all: $(OUTPUT)

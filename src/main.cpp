@@ -2,13 +2,13 @@
 #include "Menu.hpp"
 #include "Console.hpp"
 
-/*extern "C" {
+extern "C" {
     void cover();
-}*/
+}
 
 
 int main() {
-    //cover();
+    cover();
     Menu ThisMenu;
     while (true) {
         console.Clear();
