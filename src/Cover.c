@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "Console.h"
-
+#include "psconio.h"
 
 void color(){
     #ifdef __WIN32
@@ -31,6 +31,7 @@ void gotoxy(int x,int y) {
 }
 
 void cover(){
+    int character;
     color();
     printf("Office Depot\n\nCARGANDO ");
     for (int x = 1 ; x <= 50 ; x++){
@@ -38,4 +39,6 @@ void cover(){
         gotoxy(25,20); printf("%%%d" , (x * 100) / 50);
         Sleep(70);
     }
+    gotoxy(25,20);printf("Presiona cualquier tecla para continuar");
+    getch(character);
 }
