@@ -13,16 +13,6 @@ void colorback(){
     #endif
 }
 
-void Sleep(int x){
-  #ifdef __WIN32
-  #include <windows.h>
-  Sleep(x);
-  #endif
-  #ifdef __linux__
-  #include <unistd.h>
-  usleep(x*1000);
-  #endif
-}
 void gotoxy(int x,int y) {
     #ifdef __linux__
     printf("%c[%d;%df",0x1B,y,x);
