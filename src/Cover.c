@@ -1,5 +1,16 @@
 #include <stdio.h>
 
+void color(){
+    #ifdef __WIN32
+    system("color 07");
+    #endif
+}
+void colorback(){
+    #ifdef __WIN32
+    system("color 00");
+    #endif
+}
+
 void gotoxy(int x,int y) {
     #ifdef __linux__
     printf("%c[%d;%df",0x1B,y,x);
@@ -18,9 +29,7 @@ void gotoxy(int x,int y) {
 }
 
 void cover(){
-    #ifdef __WIN32
-    system("color 07");
-    #endif
+    color();
     printf("Office Depot\n\nCARGANDO ");
     for (int x = 1 ; x <= 100 ; x++){
         printf("*");
