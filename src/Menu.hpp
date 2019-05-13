@@ -2,7 +2,7 @@
 #define MENU
 
 #include <string>
-#include "psconio.hpp"
+#include "psconio.h"
 #include <iostream>
 
 #ifdef DEBUG
