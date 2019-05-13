@@ -2,6 +2,10 @@
 #include "Console.h"
 #include "psconio.h"
 
+void ClearScreen();
+void Sleep(int milliseconds);
+char getch(void);
+
 void color(){
     #ifdef __WIN32
     system("color 07");
@@ -31,8 +35,7 @@ void gotoxy(int x,int y) {
 }
 
 void cover(){
-    int character;
-    Clear();
+    ClearScreen();
     color();
     printf("Office Depot\n\nCARGANDO ");
     for (int x = 1 ; x <= 50 ; x++){
@@ -41,5 +44,5 @@ void cover(){
         Sleep(70);
     }
     gotoxy(25,20);printf("Presiona cualquier tecla para continuar");
-    getch(character);
+    getch();
 }

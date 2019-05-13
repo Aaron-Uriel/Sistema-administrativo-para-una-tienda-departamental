@@ -11,7 +11,7 @@ int main() {
     cover();
     Menu ThisMenu;
     while (true) {
-        Clear();
+        ClearScreen();
         ThisMenu.PrintOptions();
         ThisMenu.ScanKeyboard();
     }

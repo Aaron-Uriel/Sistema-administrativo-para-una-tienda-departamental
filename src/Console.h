@@ -3,12 +3,13 @@
 
 #if defined(__cplusplus)
 extern "C" {
-    void Clear();
+    void ClearScreen();
     void Sleep(int milliseconds);
 }
 #elif defined(__cplusplus)
-void Clear();
+void ClearScreen();
 void Sleep(int milliseconds);
+char getch(void);
 #endif
 
 #endif

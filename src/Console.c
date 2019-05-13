@@ -1,7 +1,7 @@
 #include "Console.h"
 #include <stdlib.h>
 
-void Clear() {
+void ClearScreen() {
     #ifdef __WIN32
     system("cls");
     #endif
