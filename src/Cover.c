@@ -2,6 +2,8 @@
 #include "Console.h"
 #include "psconio.h"
 
+//Función
+
 void ClearScreen();
 void Sleep(int milliseconds);
 char getch(void);
