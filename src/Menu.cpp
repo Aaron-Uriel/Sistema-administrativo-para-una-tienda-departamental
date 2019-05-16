@@ -56,6 +56,6 @@ void Menu::UpdateSelection() {
         m_Selection = 1;
     }
     if (m_Selection < 1) {
-        m_Selection = 4;
+        m_Selection = m_OptionsNumber;
     }
 }
