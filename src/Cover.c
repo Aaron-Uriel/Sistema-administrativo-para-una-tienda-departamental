@@ -25,14 +25,12 @@ void gotoxy(int x,int y) {
     #endif
     #ifdef __WIN32
     #include <windows.h>  
-    void gotoxy(int x,int y){  
-        HANDLE hcon;  
-        hcon = GetStdHandle(STD_OUTPUT_HANDLE);  
-        COORD dwPos;  
-        dwPos.X = x;  
-        dwPos.Y= y;  
-        SetConsoleCursorPosition(hcon,dwPos);  
-    }  
+    void gotoxy(int x, int y) {
+        COORD coord;
+        coord.X = x;
+        coord.Y = y;
+        SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+    } 
     #endif
 }
 

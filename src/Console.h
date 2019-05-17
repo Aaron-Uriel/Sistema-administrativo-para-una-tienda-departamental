@@ -1,15 +1,17 @@
 #ifndef CONSOLE
 #define CONSOLE
 
-#if defined(__cplusplus)
+#ifdef __cplusplus
 extern "C" {
+#endif
     void ClearScreen();
     void Sleep(int milliseconds);
+    void ClearScreen();
+    void Sleep(int milliseconds);
+    char getch(void);
+
+#ifdef __cplusplus
 }
-#elif defined(__cplusplus)
-void ClearScreen();
-void Sleep(int milliseconds);
-char getch(void);
 #endif
 
 #endif

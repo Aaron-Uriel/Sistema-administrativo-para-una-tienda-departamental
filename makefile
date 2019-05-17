@@ -23,7 +23,6 @@ WARNFLAGS = -Wall -Wextra
 .PHONY: all
 all:
 	$(RM) $(BINDIR)/$(BINNAME)
-all: clear
 all: $(OUTPUT)
 $(OUTPUT): $(OBJECTS)
 	$(CC) $(OBJECTS) $(LDFLAGS) -o $(OUTPUT)
@@ -40,3 +39,5 @@ clear:
 debug: FLAGS = -g -Og
 debug: all
 debug: DEFINES = -DDEBUG
+
+all: clear
