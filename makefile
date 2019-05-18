@@ -2,19 +2,11 @@ CC        = g++
 cc        = gcc
 FLAGS     ?= -O3 -pipe
 SRCDIR    = src
-RM        ?= rm
-SOURCES   =
-SRCLIST   =
-#Obtener el código fuente
-ifdef OS
-	SOURCES = $(shell dir /B /S $(SRCDIR)/*.cpp $(SRCDIR)/*.c)
-	RM = rem
-else
-	#$(dir $(SRCDIR)/*.cpp $(SRCDIR)/*.c)
-	SOURCES = $(shell find $(SRCDIR) -name *.cpp -or -name *.c)
-endif
+CSOURCES  = $(wildcard $(SRCDIR)/*.c)
+CPPSOURCES= $(wildcard $(SRCDIR)/*.cpp)
 OBJDIR    = obj
-OBJECTS   = $(SOURCES:$(SRCDIR)/%=$(OBJDIR)/%.o)
+COBJECTS  = $(CSOURCES:$(SRCDIR)/%=$(OBJDIR)/%.o)
+CPPOBJECTS= $(CPPSOURCES:$(SRCDIR)/%=$(OBJDIR)/%.o)
 BINDIR    = bin
 BINNAME   = a
 OUTPUT    = $(BINDIR)/$(BINNAME)
@@ -22,10 +14,10 @@ WARNFLAGS = -Wall -Wextra
 
 .PHONY: all
 all:
-	$(RM) $(BINDIR)/$(BINNAME)
+	rm $(BINDIR)/$(BINNAME)
 all: $(OUTPUT)
-$(OUTPUT): $(OBJECTS)
-	$(CC) $(OBJECTS) $(LDFLAGS) -o $(OUTPUT)
+$(OUTPUT): $(COBJECTS) $(CPPOBJECTS)
+	$(CC) $(CPPOBJECTS) $(COBJECTS) $(LDFLAGS) -o $(OUTPUT)
 
 $(OBJDIR)/%.cpp.o: $(SRCDIR)/%.cpp
 	$(CC) $(FLAGS) $(WARNFLAGS) $(DEFINES) -c $< -o $@
@@ -34,7 +26,7 @@ $(OBJDIR)/%.c.o: $(SRCDIR)/%.c
 	$(cc) $(FLAGS) $(WARNFLAGS) $(DEFINES) -c $< -o $@
 
 clear:
-	$(RM) $(OBJDIR)/*.o
+	rm $(OBJDIR)/*.o
 
 debug: FLAGS = -g -Og
 debug: all

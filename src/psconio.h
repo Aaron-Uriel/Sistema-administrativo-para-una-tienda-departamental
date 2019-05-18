@@ -5,12 +5,11 @@
 
 #if defined(__cplusplus)
 extern "C" {
+#endif
     char getch(void);
     char getche(void);
+if defined(__cplusplus)
 }
-#elif defined(__cplusplus)
-char getch(void);
-char getche(void);
 #endif
 
 #endif
@@ -18,7 +17,5 @@ char getche(void);
 #ifdef __WIN32
 
 #include <conio.h>
-
-#endif
 
 #endif

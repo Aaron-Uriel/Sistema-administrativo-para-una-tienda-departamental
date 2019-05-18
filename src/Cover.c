@@ -2,11 +2,6 @@
 #include "Console.h"
 #include "psconio.h"
 
-//Función
-
-void ClearScreen();
-void Sleep(int milliseconds);
-char getch(void);
 
 void color(){
     #ifdef __WIN32
@@ -23,15 +18,14 @@ void gotoxy(int x,int y) {
     #ifdef __linux__
     printf("%c[%d;%df",0x1B,y,x);
     #endif
-    #ifdef __WIN32
+    printf("\033[%d;%dH", y, x);
+    /*#ifdef __WIN32
     #include <windows.h>  
-    void gotoxy(int x, int y) {
-        COORD coord;
-        coord.X = x;
-        coord.Y = y;
-        SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-    } 
-    #endif
+    COORD coord;
+    coord.X = x;
+    coord.Y = y;
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+    #endif*/
 }
 
 void cover(){

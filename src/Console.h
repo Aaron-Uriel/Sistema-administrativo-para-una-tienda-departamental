@@ -4,11 +4,8 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-    void ClearScreen();
-    void Sleep(int milliseconds);
-    void ClearScreen();
-    void Sleep(int milliseconds);
-    char getch(void);
+     void ClearScreen();
+    //void Sleep_(int milliseconds);
 
 #ifdef __cplusplus
 }
