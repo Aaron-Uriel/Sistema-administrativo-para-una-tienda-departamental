@@ -16,9 +16,12 @@ void Menu::PrintOptions() {
 }
 
 void Menu::ScanKeyboard() {
-    if (getch() == '\n') { this->CallSelectedFunction(); }
+    m_Arrow = getch();
+    if (m_Arrow == '\n') { this->CallSelectedFunction(); }
+    #ifdef __linux__
     getch();
     m_Arrow = getch();
+    #endif
     UpdateSelection();
 }
 
@@ -49,8 +52,14 @@ std::string Menu::PrintSelection(const unsigned short Selection) {
 
 void Menu::UpdateSelection() {
     switch (m_Arrow) {
+        #ifdef __linux__
         case 'A': m_Selection--; break;
         case 'B': m_Selection++; break;
+        #endif
+        #ifdef __WIN32
+        case 72: m_Selection--; break;
+        case 80: m_Selection++; break;
+        #endif
     }
     if (m_Selection > m_OptionsNumber) {
         m_Selection = 1;
