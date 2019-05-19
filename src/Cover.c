@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "Console.h"
 #include "psconio.h"
-
+#include <stdlib.h>
 
 void color(){
     #ifdef __WIN32
@@ -14,20 +14,6 @@ void colorback(){
     #endif
 }
 
-void gotoxy(int x,int y) {
-    #ifdef __linux__
-    printf("%c[%d;%df",0x1B,y,x);
-    #endif
-    printf("\033[%d;%dH", y, x);
-    /*#ifdef __WIN32
-    #include <windows.h>  
-    COORD coord;
-    coord.X = x;
-    coord.Y = y;
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-    #endif*/
-}
-
 void cover(){
     ClearScreen();
     color();
@@ -37,6 +23,7 @@ void cover(){
         gotoxy(25,20); printf("%%%d" , (x * 100) / 50);
         Sleep_(70);
     }
-    gotoxy(25,20);printf("Presiona cualquier tecla para continuar");
+    gotoxy(25,20);
+    printf("Presiona cualquier tecla para continuar");
     getch();
 }
