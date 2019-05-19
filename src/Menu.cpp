@@ -26,15 +26,13 @@ void Menu::ScanKeyboard() {
 }
 
 void Menu::CallSelectedFunction() {
-    switch (m_Selection) {
-        case 1:  ; break;
-        case 2:  ; break;
-        case 3:  ; break;
-        case 4:  ; break;
-        case 5:  ; break;
-        case 6: exit(0) ; break;
-        default: exit(1);
-    }
+    if (m_Selection == 1) {}
+    else if (m_Selection == 2) {}
+    else if (m_Selection == 3) {}
+    else if (m_Selection == 4) {}
+    else if (m_Selection == 5) {}
+    else if (m_Selection == 6) {}
+    else { exit(123); }
 }
 
 std::string Menu::PrintSelection(const unsigned short Selection) {
