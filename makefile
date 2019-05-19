@@ -13,8 +13,6 @@ OUTPUT    = $(BINDIR)/$(BINNAME)
 WARNFLAGS = -Wall -Wextra
 
 .PHONY: all
-all:
-	rm $(BINDIR)/$(BINNAME)
 all: $(OUTPUT)
 $(OUTPUT): $(COBJECTS) $(CPPOBJECTS)
 	$(CC) $(CPPOBJECTS) $(COBJECTS) $(LDFLAGS) -o $(OUTPUT)

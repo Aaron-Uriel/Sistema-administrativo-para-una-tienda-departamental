@@ -10,7 +10,7 @@ void ClearScreen() {
     #endif
 }
 
-/*void Sleep_(int milliseconds){
+void Sleep_(int milliseconds){
     #ifdef __WIN32
     #include <windows.h>
     Sleep(milliseconds);
@@ -20,4 +20,3 @@ void ClearScreen() {
     usleep(milliseconds*1000);
   #endif
 }
-*/

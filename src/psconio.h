@@ -8,14 +8,14 @@ extern "C" {
 #endif
     char getch(void);
     char getche(void);
-if defined(__cplusplus)
+#if defined(__cplusplus)
 }
 #endif
 
 #endif
 
 #ifdef __WIN32
-
 #include <conio.h>
+#endif
 
 #endif

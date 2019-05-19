@@ -35,7 +35,7 @@ void cover(){
     for (int x = 1 ; x <= 50 ; x++){
         gotoxy(x,20); printf("*\n");
         gotoxy(25,20); printf("%%%d" , (x * 100) / 50);
-        Sleep(70);
+        Sleep_(70);
     }
     gotoxy(25,20);printf("Presiona cualquier tecla para continuar");
     getch();

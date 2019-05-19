@@ -5,7 +5,7 @@
 extern "C" {
 #endif
      void ClearScreen();
-    //void Sleep_(int milliseconds);
+    void Sleep_(int milliseconds);
 
 #ifdef __cplusplus
 }
