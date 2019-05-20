@@ -1,18 +1,23 @@
 #include "Menu.hpp"
 
-Menu::Menu() {
+Menu::Menu(): m_MenuFile("Menu.txt") {
     m_Selection = 1;
     m_Arrow     = 0;
 }
 
 void Menu::PrintOptions() {
-    std::cout << "Seleccione una opción.\n" << std::endl <<
-        "1.- Agregar producto." << PrintSelection(m_Selection) << std::endl <<
-        "2.- Eliminar producto." << PrintSelection(m_Selection) << std::endl <<
-        "3.- Aplicar un descuento." << PrintSelection(m_Selection) << std::endl <<
-        "4.- Ver estado de los productos." << PrintSelection(m_Selection) << std::endl <<
-        "5.- Editar productos." << PrintSelection(m_Selection) << std::endl <<
-        "6.- Salir." << PrintSelection(m_Selection) << std::endl << std::endl;
+    std::cout << "Seleccione una opción.\n" << std::endl;
+    if (m_MenuFile.is_open()) {
+        std::string StringFromFile;
+        while (std::getline (m_MenuFile, StringFromFile)) {
+            std::cout << StringFromFile << PrintSelection() << std::endl;
+            m_Lines++;
+        }
+        m_MenuFile.clear();
+        m_MenuFile.seekg(0, std::ios::beg);
+    } else {
+        std::cout << "No se pudo abrir el archivo \"Menu.txt\"\nCerrando\n"; exit(1);
+    }
 }
 
 void Menu::ScanKeyboard() {
@@ -31,16 +36,16 @@ void Menu::CallSelectedFunction() {
     else if (m_Selection == 3) {}
     else if (m_Selection == 4) {}
     else if (m_Selection == 5) {}
-    else if (m_Selection == 6) {}
+    else if (m_Selection == 6) { exit(1); }
     else { exit(123); }
 }
 
-std::string Menu::PrintSelection(const unsigned short Selection) {
+std::string Menu::PrintSelection() {
     static unsigned short TimesCalled = 1;
     if (TimesCalled > m_OptionsNumber) {
         TimesCalled = 1;
     }
-    if (Selection == TimesCalled) {
+    if (m_Selection == TimesCalled) {
         TimesCalled++;
         return " <-";
     }
@@ -65,4 +70,8 @@ void Menu::UpdateSelection() {
     if (m_Selection < 1) {
         m_Selection = m_OptionsNumber;
     }
+}
+
+Menu::~Menu() {
+    m_MenuFile.close();
 }

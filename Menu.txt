@@ -1,0 +1,6 @@
+1.- Agregar producto
+2.- Eliminar producto
+3.- Aplicar un descuento
+4.- Ver estado de los productos
+5.- Editar productos
+6.- Salir
