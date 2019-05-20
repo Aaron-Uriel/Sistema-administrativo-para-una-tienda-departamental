@@ -1,6 +1,14 @@
 #include "Menu.hpp"
 
-Menu::Menu(): m_MenuFile("Menu.txt") {
+Menu::Menu(): m_MenuFile("Menu.txt"), m_Lines(1) {
+    if (m_MenuFile.is_open()) {
+        while (!m_MenuFile.eof()) {
+            if (m_MenuFile.get() == '\n') {
+                ++m_Lines;
+            }
+        }
+        m_MenuFile.seekg(0);
+    }
     m_Selection = 1;
     m_Arrow     = 0;
 }
@@ -11,7 +19,6 @@ void Menu::PrintOptions() {
         std::string StringFromFile;
         while (std::getline (m_MenuFile, StringFromFile)) {
             std::cout << StringFromFile << PrintSelection() << std::endl;
-            m_Lines++;
         }
         m_MenuFile.clear();
         m_MenuFile.seekg(0, std::ios::beg);
