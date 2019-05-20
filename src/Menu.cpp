@@ -42,7 +42,7 @@ void Menu::CallSelectedFunction() {
 
 std::string Menu::PrintSelection() {
     static unsigned short TimesCalled = 1;
-    if (TimesCalled > m_OptionsNumber) {
+    if (TimesCalled > m_Lines) {
         TimesCalled = 1;
     }
     if (m_Selection == TimesCalled) {
@@ -64,11 +64,11 @@ void Menu::UpdateSelection() {
         case 80: m_Selection++; break;
         #endif
     }
-    if (m_Selection > m_OptionsNumber) {
+    if (m_Selection > m_Lines) {
         m_Selection = 1;
     }
     if (m_Selection < 1) {
-        m_Selection = m_OptionsNumber;
+        m_Selection = m_Lines;
     }
 }
 
