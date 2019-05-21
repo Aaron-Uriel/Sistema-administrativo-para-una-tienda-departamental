@@ -18,6 +18,7 @@ private:
     void UpdateSelection();
     std::ifstream m_MenuFile;
     unsigned short m_Lines;
+    FILE *fp;
 public:
     Menu();
     void PrintOptions();
