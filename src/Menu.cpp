@@ -2,12 +2,15 @@
 
 Menu::Menu(): m_MenuFile("Menu.txt"), m_Lines(1) {
     if (m_MenuFile.is_open()) {
-        while (!m_MenuFile.eof()) {
-            if (m_MenuFile.get() == '\n') {
-                ++m_Lines;
+        char Char;
+        while (m_MenuFile.get(Char)) {
+            if (Char == '\n') {
+                m_Lines++;
             }
         }
-        m_MenuFile.seekg(0);
+    } else {
+        std::cerr << "No se pudo abrir el archivo \"Menu.txt\"\nCerrando...\n";
+        exit(1);
     }
     m_Selection = 1;
     m_Arrow     = 0;
@@ -15,16 +18,12 @@ Menu::Menu(): m_MenuFile("Menu.txt"), m_Lines(1) {
 
 void Menu::PrintOptions() {
     std::cout << "Seleccione una opción.\n" << std::endl;
-    if (m_MenuFile.is_open()) {
-        std::string StringFromFile;
-        while (std::getline (m_MenuFile, StringFromFile)) {
-            std::cout << StringFromFile << PrintSelection() << std::endl;
-        }
-        m_MenuFile.clear();
-        m_MenuFile.seekg(0, std::ios::beg);
-    } else {
-        std::cout << "No se pudo abrir el archivo \"Menu.txt\"\nCerrando\n"; exit(1);
+    std::string StringFromFile;
+    while (std::getline (m_MenuFile, StringFromFile)) {
+        std::cout << StringFromFile << PrintSelection() << std::endl;
     }
+    m_MenuFile.clear();
+    m_MenuFile.seekg(0);
 }
 
 void Menu::ScanKeyboard() {

@@ -6,9 +6,6 @@
 #include <iostream>
 #include <fstream>
 
-#ifdef DEBUG
-#include <cassert>
-#endif
 
 class Menu {
 private:
