@@ -14,16 +14,20 @@ void colorback(){
     #endif
 }
 
+const int AnchoVentana = 68;
+const int LargoVentana = 26;
+
 void cover(){
     ClearScreen();
     color();
-    printf("Office Depot\n\nCARGANDO ");
-    for (int x = 1 ; x <= 50 ; x++){
-        gotoxy(x,20); printf("*\n");
-        gotoxy(25,20); printf("%%%d" , (x * 100) / 50);
-        Sleep_(70);
+    printf("Office Depot\n\nCARGANDO... ");
+    for (int x = 1 ; x <= AnchoVentana ; x++){
+        gotoxy(x, LargoVentana / 2);
+        printf("*\n");
+        gotoxy(AnchoVentana / 2, LargoVentana / 2);
+        printf("%d%%" , (x * 100) / AnchoVentana);
+        Sleep_(50);
     }
-    gotoxy(25,20);
-    printf("Presiona cualquier tecla para continuar");
+    printf("\nPresiona cualquier tecla para continuar");
     getch();
 }
