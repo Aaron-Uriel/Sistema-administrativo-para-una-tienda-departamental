@@ -8,6 +8,8 @@ Menu::Menu(): m_MenuFile("Menu.txt"), m_Lines(1) {
                 m_Lines++;
             }
         }
+        m_MenuFile.clear();
+        m_MenuFile.seekg(0);
     } else {
         std::cerr << "No se pudo abrir el archivo \"Menu.txt\"\nCerrando...\n";
         exit(1);
