@@ -5,6 +5,7 @@
 #include "psconio.h"
 #include <iostream>
 #include <fstream>
+#include <stdio.h>
 
 #ifdef DEBUG
 #include <cassert>
