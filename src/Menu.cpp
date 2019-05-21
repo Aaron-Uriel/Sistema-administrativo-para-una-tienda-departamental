@@ -11,6 +11,7 @@ Menu::Menu(): m_MenuFile("Menu.txt"), m_Lines(1) {
     }
     m_Selection = 1;
     m_Arrow     = 0;
+    fp = fopen("Product Struct.txt", "r");
 }
 
 void Menu::PrintOptions() {
