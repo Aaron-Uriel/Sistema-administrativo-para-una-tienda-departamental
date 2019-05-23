@@ -51,8 +51,7 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-.vscode
-*.json
+settings.json
 *.ipch
 ipch
 main.ipch
