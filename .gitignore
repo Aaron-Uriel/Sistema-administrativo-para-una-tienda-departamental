@@ -57,3 +57,4 @@ ipch
 main.ipch
 bin
 *.exe
+rang.hpp
