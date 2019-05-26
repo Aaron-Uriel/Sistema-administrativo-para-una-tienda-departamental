@@ -11,17 +11,16 @@
 class BaseMenu {
 private:
     char m_Arrow;
-    std::string PrintUnderlineText(std::string Str);
+    void PrintUnderlineText(std::string Str);
     void UpdateSelection();
     std::ifstream m_FilePtr;
     unsigned int m_Lines;
     unsigned short m_SelectedLine;
 public:
-    BaseMenu(std::string FileName);
+    BaseMenu(std::string FileName = "Menu.txt");
     void PrintOptions();
     void ScanKeyboard();
-    virtual void CallSelectedFunction() = 0;
-    ~BaseMenu();
+    virtual void CallSelectedFunction();
 };
 
 #endif

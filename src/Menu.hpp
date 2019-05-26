@@ -9,6 +9,11 @@
 #include "BaseMenu.hpp"
 
 
-class MainMenu: public 
+class MainMenu: public BaseMenu {
+private:
+    unsigned short m_SelectedLine;
+public:
+    void CallSelectedFunction();
+};
 
 #endif

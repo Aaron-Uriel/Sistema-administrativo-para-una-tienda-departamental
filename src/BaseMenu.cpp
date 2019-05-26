@@ -1,6 +1,6 @@
 #include "BaseMenu.hpp"
 
-BaseMenu::BaseMenu(std::string Filename = "Menu.txt"):
+BaseMenu::BaseMenu(std::string Filename):
     m_FilePtr(Filename), m_Lines(1), m_SelectedLine(1) {
     if (m_FilePtr.is_open()) {
         //Contamos los renglones
@@ -27,14 +27,17 @@ void BaseMenu::PrintOptions() {
     m_FilePtr.seekg(0);
 }
 
-std::string BaseMenu::PrintUnderlineText(std::string Str) {
+void BaseMenu::PrintUnderlineText(std::string Str) {
     static unsigned int TimesCalled = 1;
     if (TimesCalled > m_Lines) {
         TimesCalled = 1;
     }
     if (TimesCalled == m_SelectedLine) {
-        std::cout << rang::style::underline << Str << rang::style::reset;
+        std::cout << rang::style::underline << Str << rang::style::reset << std::endl;
+    } else {
+        std::cout << Str << std::endl;
     }
+    TimesCalled++;
 }
 
 void BaseMenu::UpdateSelection() {
@@ -64,4 +67,14 @@ void BaseMenu::ScanKeyboard() {
     m_Arrow = getch();
     #endif
     UpdateSelection();
+}
+
+void BaseMenu::CallSelectedFunction() {
+    if (m_SelectedLine == 1) {}
+    else if (m_SelectedLine == 2) {}
+    else if (m_SelectedLine == 3) {}
+    else if (m_SelectedLine == 4) {}
+    else if (m_SelectedLine == 5) {}
+    else if (m_SelectedLine == 6) { exit(1); }
+    else { exit(123); }
 }
