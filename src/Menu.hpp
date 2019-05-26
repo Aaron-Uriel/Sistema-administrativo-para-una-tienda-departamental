@@ -6,23 +6,9 @@
 #include <iostream>
 #include <fstream>
 #include <stdio.h>
+#include "BaseMenu.hpp"
 
 
-class Menu {
-private:
-    unsigned short m_Selection;
-    unsigned char  m_Arrow;
-    std::string PrintSelection();
-    void UpdateSelection();
-    std::ifstream m_MenuFile;
-    unsigned short m_Lines;
-    FILE *fp;
-public:
-    Menu();
-    void PrintOptions();
-    void ScanKeyboard();
-    void CallSelectedFunction();
-    ~Menu();
-};
+class MainMenu: public 
 
 #endif

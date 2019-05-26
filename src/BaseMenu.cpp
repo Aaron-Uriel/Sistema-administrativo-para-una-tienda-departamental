@@ -1,6 +1,6 @@
 #include "BaseMenu.hpp"
 
-Menu::Menu(std::string Filename = "Menu.txt"):
+BaseMenu::BaseMenu(std::string Filename = "Menu.txt"):
     m_FilePtr(Filename), m_Lines(1), m_SelectedLine(1) {
     if (m_FilePtr.is_open()) {
         //Contamos los renglones
@@ -18,7 +18,7 @@ Menu::Menu(std::string Filename = "Menu.txt"):
     }
 }
 
-void Menu::PrintOptions() {
+void BaseMenu::PrintOptions() {
     std::string StreamBuffer;
     while (std::getline(m_FilePtr, StreamBuffer)) {
         PrintUnderlineText(StreamBuffer);
@@ -27,7 +27,7 @@ void Menu::PrintOptions() {
     m_FilePtr.seekg(0);
 }
 
-std::string Menu::PrintUnderlineText(std::string Str) {
+std::string BaseMenu::PrintUnderlineText(std::string Str) {
     static unsigned int TimesCalled = 1;
     if (TimesCalled > m_Lines) {
         TimesCalled = 1;
@@ -37,7 +37,7 @@ std::string Menu::PrintUnderlineText(std::string Str) {
     }
 }
 
-void Menu::UpdateSelection() {
+void BaseMenu::UpdateSelection() {
     switch (m_Arrow) {
         #ifdef __linux__
         case 'A': m_SelectedLine--; break;
@@ -56,7 +56,7 @@ void Menu::UpdateSelection() {
     }
 }
 
-void Menu::ScanKeyboard() {
+void BaseMenu::ScanKeyboard() {
     m_Arrow = getch();
     if (m_Arrow == '\n') { this->CallSelectedFunction(); }
     #ifdef __linux__

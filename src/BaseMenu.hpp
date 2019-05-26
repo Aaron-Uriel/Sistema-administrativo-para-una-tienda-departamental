@@ -8,7 +8,7 @@
 #include "rang.hpp"
 #include "psconio.h"
 
-class Menu {
+class BaseMenu {
 private:
     char m_Arrow;
     std::string PrintUnderlineText(std::string Str);
@@ -17,11 +17,11 @@ private:
     unsigned int m_Lines;
     unsigned short m_SelectedLine;
 public:
-    Menu(std::string FileName);
+    BaseMenu(std::string FileName);
     void PrintOptions();
     void ScanKeyboard();
     virtual void CallSelectedFunction() = 0;
-    ~Menu();
+    ~BaseMenu();
 };
 
 #endif
