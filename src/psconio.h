@@ -14,8 +14,5 @@ extern "C" {
 
 #endif
 
-#ifdef __WIN32
-#include <conio.h>
-#endif
 
 #endif

@@ -2,7 +2,12 @@
 #define MENU
 
 #include <string>
+#ifdef __linux__
 #include "psconio.h"
+#endif
+#ifdef __WIN32
+#include <conio.h>
+#endif
 #include <iostream>
 #include <fstream>
 #include <stdio.h>

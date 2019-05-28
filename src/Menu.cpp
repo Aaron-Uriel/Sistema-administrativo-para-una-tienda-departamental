@@ -31,7 +31,9 @@ void Menu::PrintOptions() {
 
 void Menu::ScanKeyboard() {
     m_Arrow = getch();
-    if (m_Arrow == '\n') { this->CallSelectedFunction(); }
+    if (m_Arrow == '\n' || m_Arrow == '\r') {
+        this->CallSelectedFunction();
+    }
     #ifdef __linux__
     getch();
     m_Arrow = getch();
@@ -41,12 +43,11 @@ void Menu::ScanKeyboard() {
 
 void Menu::CallSelectedFunction() {
     if (m_Selection == 1) {}
-    else if (m_Selection == 2) {}
+    else if (m_Selection == 2) { std::cout << "Funciona" << std::endl; exit(0);}
     else if (m_Selection == 3) {}
     else if (m_Selection == 4) {}
     else if (m_Selection == 5) {}
     else if (m_Selection == 6) { exit(1); }
-    else { exit(123); }
 }
 
 std::string Menu::PrintSelection() {
