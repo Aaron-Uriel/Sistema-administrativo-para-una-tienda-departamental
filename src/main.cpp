@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Menu.hpp"
 #include "Console.h"
+
 extern "C" {
     void cover();
 }
@@ -8,7 +9,7 @@ extern "C" {
 
 int main() {
     cover();
-    MainMenu ThisMenu;
+    Menu ThisMenu;
     while (true) {
         ClearScreen();
         ThisMenu.PrintOptions();
