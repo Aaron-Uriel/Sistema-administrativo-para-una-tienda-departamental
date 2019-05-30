@@ -1,6 +1,6 @@
 #include "Menu.hpp"
 
-Menu::Menu(): m_MenuFile("Menu.txt"), m_Lines(1) {
+Menu::Menu(std::string MenuName): m_MenuFile(MenuName), m_Lines(1) {
     if (m_MenuFile.is_open()) {
         char Char;
         while (m_MenuFile.get(Char)) {
@@ -16,7 +16,6 @@ Menu::Menu(): m_MenuFile("Menu.txt"), m_Lines(1) {
     }
     m_Selection = 1;
     m_Arrow     = 0;
-    fp = fopen("Product Struct.txt", "r");
 }
 
 void Menu::PrintOptions() {
@@ -43,7 +42,7 @@ void Menu::ScanKeyboard() {
 
 void Menu::CallSelectedFunction() {
     if (m_Selection == 1) {}
-    else if (m_Selection == 2) { std::cout << "Funciona" << std::endl; exit(0);}
+    else if (m_Selection == 2) {}
     else if (m_Selection == 3) {}
     else if (m_Selection == 4) {}
     else if (m_Selection == 5) {}

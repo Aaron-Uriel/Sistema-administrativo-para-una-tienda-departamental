@@ -21,9 +21,8 @@ private:
     void UpdateSelection();
     std::ifstream m_MenuFile;
     unsigned short m_Lines;
-    FILE *fp;
 public:
-    Menu();
+    Menu(std::string MenuName = "Menu.txt");
     void PrintOptions();
     void ScanKeyboard();
     void CallSelectedFunction();
