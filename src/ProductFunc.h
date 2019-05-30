@@ -11,6 +11,7 @@ extern "C" {
 #endif
     bool FindFileAndCountLines(); //Regresa 1 si el archivo no se encontró
     void AgregarProducto();
+    void EliminarProducto();
 #if defined(__cplusplus)
 }
 #endif

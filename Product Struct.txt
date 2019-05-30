@@ -1,10 +1,26 @@
-1
-Computadora HP
-5699
-fnfskdf
-sfds
-/
-2
+{
+PC
+5899
+Un ordenado a un precio muy bajo
+}
 
-
-3
+{
+Libro
+299
+Libro sobre todo lo que
+saben los hombres de la mujeres...
+está vacio
+}{
+Platos
+49
+Un montón de platos que
+no tienen muchas utilidades
+xd
+}
+{
+Peluche
+999
+Un peluche génerico
+el cual tiene
+mucho pelo
+}

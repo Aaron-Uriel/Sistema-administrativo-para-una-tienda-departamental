@@ -20,6 +20,7 @@ Menu::Menu(std::string MenuName): m_MenuFile(MenuName), m_Lines(1) {
 }
 
 void Menu::PrintOptions() {
+    ClearScreen();
     std::cout << "Seleccione una opción.\n" << std::endl;
     std::string StringFromFile;
     while (std::getline (m_MenuFile, StringFromFile)) {
@@ -35,8 +36,10 @@ void Menu::ScanKeyboard() {
         this->CallSelectedFunction();
     }
     #ifdef __linux__
-    getch();
-    m_Arrow = getch();
+    if (!(m_Arrow != '\n' || m_Arrow == '\r')) {
+        getch();
+        m_Arrow = getch();
+    }
     #endif
     UpdateSelection();
 }
@@ -47,8 +50,8 @@ void Menu::CallSelectedFunction() {
         FindFileAndCountLines();
         FirstLaunch = false;
     }
-    if (m_Selection == 1) {AgregarProducto();}
-    else if (m_Selection == 2) {}
+    if (m_Selection == 1) { AgregarProducto();}
+    else if (m_Selection == 2) { EliminarProducto();}
     else if (m_Selection == 3) {}
     else if (m_Selection == 4) {}
     else if (m_Selection == 5) {}
