@@ -47,7 +47,7 @@ void Menu::CallSelectedFunction() {
         FindFileAndCountLines();
         FirstLaunch = false;
     }
-    if (m_Selection == 1) {}
+    if (m_Selection == 1) {AgregarProducto();}
     else if (m_Selection == 2) {}
     else if (m_Selection == 3) {}
     else if (m_Selection == 4) {}
