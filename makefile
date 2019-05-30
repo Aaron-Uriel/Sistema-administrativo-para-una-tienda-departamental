@@ -21,7 +21,7 @@ $(OBJDIR)/%.cpp.o: $(SRCDIR)/%.cpp
 	$(CC) $(FLAGS) $(WARNFLAGS) $(DEFINES) -c $< -o $@
 
 $(OBJDIR)/%.c.o: $(SRCDIR)/%.c
-	$(cc) $(FLAGS) $(WARNFLAGS) $(DEFINES) -c $< -o $@
+	$(cc) $(FLAGS) $(WARNFLAGS) $(DEFINES) -std=c11 -c $< -o $@
 
 clear:
 	rm $(OBJDIR)/*.o

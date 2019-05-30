@@ -1,4 +1,5 @@
 #include "Menu.hpp"
+#include "ProductFunc.h"
 
 Menu::Menu(std::string MenuName): m_MenuFile(MenuName), m_Lines(1) {
     if (m_MenuFile.is_open()) {
@@ -41,7 +42,7 @@ void Menu::ScanKeyboard() {
 }
 
 void Menu::CallSelectedFunction() {
-    if (m_Selection == 1) {}
+    if (m_Selection == 1) {FOO();}
     else if (m_Selection == 2) {}
     else if (m_Selection == 3) {}
     else if (m_Selection == 4) {}
