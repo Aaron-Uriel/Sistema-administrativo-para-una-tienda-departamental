@@ -42,7 +42,12 @@ void Menu::ScanKeyboard() {
 }
 
 void Menu::CallSelectedFunction() {
-    if (m_Selection == 1) {FOO();}
+    static bool FirstLaunch = true;
+    if (FirstLaunch) {
+        FindFileAndCountLines();
+        FirstLaunch = false;
+    }
+    if (m_Selection == 1) {}
     else if (m_Selection == 2) {}
     else if (m_Selection == 3) {}
     else if (m_Selection == 4) {}

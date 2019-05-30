@@ -10,7 +10,7 @@
 extern "C" {
 #endif
     bool FindFileAndCountLines(); //Regresa 1 si el archivo no se encontró
-    void FOO();
+    void AgregarProducto();
 #if defined(__cplusplus)
 }
 #endif
